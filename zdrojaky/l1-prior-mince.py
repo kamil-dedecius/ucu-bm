@@ -1,0 +1,33 @@
+import numpy as np
+from scipy.stats import beta
+import matplotlib.pylab as plt
+
+x = np.linspace(0, 1)
+unif = beta.pdf(x, 1, 1)
+cent = beta.pdf(x, 2.3, 2.3)
+cent2 = beta.pdf(x, 12, 12)
+skewed = beta.pdf(x, 3, 1)
+
+plt.figure(figsize=(14, 3))
+plt.subplot(1, 4, 1)
+plt.plot(x, unif)
+plt.ylim((0, 4))
+plt.title('(A)')
+plt.ylabel('p(X)')
+plt.xlabel('X')
+plt.subplot(1, 4, 2)
+plt.plot(x, cent)
+plt.title('(B1)')
+plt.xlabel('X')
+plt.ylim((0, 4))
+plt.subplot(1, 4, 3)
+plt.plot(x, cent2)
+plt.title('(B2)')
+plt.xlabel('X')
+plt.ylim((0, 4))
+plt.subplot(1, 4, 4)
+plt.plot(x, skewed)
+plt.ylim((0, 4))
+plt.xlabel('X')
+plt.title('(C)')
+plt.savefig('l1-prior-mince.jpg', layout='tight')
